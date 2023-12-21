@@ -1,0 +1,64 @@
+@import "styles/config";
+
+.banner {
+
+  .pc {
+    height: calc(var(--window-height, 100vh) - $header-pc-height);
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
+
+    .slide {
+      width: 100%;
+      height: calc(var(--window-height, 100vh) - $header-pc-height);
+      position: relative;
+      overflow: hidden;
+
+      a {
+        display: block;
+        height: 100%;
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .mobile {
+    display: none;
+    background-color: var(--background-color);
+    height: var(--window-height, 100vh);
+
+    @media (max-width: $mobile) {
+      display: block;
+    }
+
+    .slide {
+      width: 100%;
+      height: var(--window-height, 100vh);
+      position: relative;
+      overflow: hidden;
+
+      a {
+        display: block;
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+}

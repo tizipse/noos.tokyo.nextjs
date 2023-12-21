@@ -1,0 +1,81 @@
+@import "styles/config";
+
+.main {
+  width: 100%;
+  max-width: var(--main-width);
+  margin: 100px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: $mobile) {
+    display: block;
+    margin: 120px auto 0;
+    padding: 0 $mobile-padding-left-right;
+  }
+
+  .thumb {
+    width: 40%;
+    padding-right: 50px;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      padding: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .information {
+    width: 60%;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .info {
+      display: flex;
+      margin-bottom: 20px;
+
+      .inf {
+        flex: 1;
+
+        h3 {
+          color: var(--title-color);
+          font-size: 16px;
+          margin-bottom: 15px;
+          font-weight: 700;
+        }
+
+        h4 {
+          color: var(--title-color);
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 400;
+        }
+      }
+
+      .media {
+        width: 80px;
+        text-align: right;
+
+        a {
+          display: block;
+
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+
+    .content {
+      color: rgb(149, 152, 157);
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
