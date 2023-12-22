@@ -3,6 +3,7 @@
 .main {
   width: 100%;
   max-width: var(--main-width);
+  min-height: calc(var(--window-height, 100vh) - 345px);
   margin: 100px auto 0;
   display: flex;
   flex-wrap: wrap;

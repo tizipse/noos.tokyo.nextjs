@@ -76,6 +76,10 @@
         .info {
           margin: 20px 0 40px;
 
+          h3, h4 {
+            letter-spacing: 1px;
+          }
+
           h3 {
             font-size: 14px;
             font-weight: 400;
@@ -118,12 +122,21 @@
     }
 
     .container {
+      display: flex;
+      flex-direction: row-reverse;
+
+      @media (max-width: $main-width) {
+        display: block;
+      }
 
       .info {
-        width: calc(100% - 300px);
+        flex: 1 auto;
+        display: flex;
+        align-items: flex-end;
 
         @media (max-width: $main-width) {
           width: 100%;
+          margin-top: 20px;
         }
 
         h3 {
@@ -164,11 +177,9 @@
 
       .map {
         width: 300px;
-        float: right;
 
         @media (max-width: $main-width) {
           width: 100%;
-          float: none;
         }
 
         img {

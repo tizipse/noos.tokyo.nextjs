@@ -6,6 +6,7 @@ import './layout.scss'
 
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import Progress from "@/components/progress"
 
 export const viewport = {
     width: 'device-width',
@@ -25,6 +26,7 @@ export default async function Layout({children}: { children: React.ReactNode }) 
     return (
         <html lang="en">
         <body>
+        <Progress/>
         <Header/>
         {children}
         <Footer copyright={setting.copyright}/>

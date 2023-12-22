@@ -59,34 +59,39 @@ export default async function () {
             }
 
             <div id='information' className={styles.information}>
+
                 <h2>Information</h2>
 
                 <div className={styles.container}>
 
-                    <div className={styles.map}>
-                        <img src="/images/map.jpg" alt="map"/>
-                    </div>
+                    {
+                        setting.map &&
+                        <div className={styles.map}>
+                            <img src={setting.map} alt="map"/>
+                        </div>
+                    }
 
                     <div className={styles.info}>
-                        <h3>Information</h3>
 
-                        <h4>Address</h4>
-                        <p>
-                            {setting.address}
-                        </p>
+                        <div>
+                            <h3>Information</h3>
 
-                        <h4>Open～Close</h4>
-                        <p>
-                            {
-                                times?.map(item => (
-                                    <span
-                                        key={item.id}>{item.name}. {item.status == 'open' ? item.content : 'close'}</span>
-                                ))
-                            }
-                        </p>
+                            <h4>Address</h4>
+                            <p>
+                                {setting.address}
+                            </p>
+
+                            <h4>Open～Close</h4>
+                            <p>
+                                {
+                                    times?.map(item => (
+                                        <span
+                                            key={item.id}>{item.name}. {item.status == 'open' ? item.content : 'close'}</span>
+                                    ))
+                                }
+                            </p>
+                        </div>
                     </div>
-
-                    <div className='clear'></div>
                 </div>
             </div>
         </main>

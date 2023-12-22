@@ -57,6 +57,7 @@ declare namespace API {
         copyright?: string;
         logo?: string;
         address?: string;
+        map?: string;
     }
 
     type Response<T> = {

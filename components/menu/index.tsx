@@ -4,6 +4,7 @@ import React from "react";
 import {Collapse, ConfigProvider} from "antd";
 
 import styles from "./index.module.scss"
+import {DownOutlined} from "@ant-design/icons";
 
 export default function (props: COMMenu.Props) {
 
@@ -33,6 +34,7 @@ export default function (props: COMMenu.Props) {
                         <Collapse
                             ghost
                             expandIconPosition='end'
+                            expandIcon={({isActive}) => <DownOutlined rotate={isActive ? 180 : 0}/>}
                             items={props.sources.map(item => ({
                                 key: item.code,
                                 label: (<h3>{item.label}</h3>),
