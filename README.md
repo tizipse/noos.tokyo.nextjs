@@ -40,7 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 编译镜像
 
 ```bash
-docker build -t noos/nextjs:1.0.0 .
+docker build -t noos/nextjs:1.0.0 --network=host .
 ```
 
 运行容器
