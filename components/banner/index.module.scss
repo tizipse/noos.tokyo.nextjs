@@ -35,9 +35,19 @@
     display: none;
     background-color: var(--background-color);
     height: var(--window-height, 100vh);
+    position: relative;
 
     @media (max-width: $mobile) {
       display: block;
+    }
+
+    .icon_down {
+      width: 40px;
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9;
     }
 
     .slide {

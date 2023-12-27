@@ -58,6 +58,7 @@ declare namespace API {
         logo?: string;
         address?: string;
         map?: string;
+        icon_down?: string;
     }
 
     type Response<T> = {

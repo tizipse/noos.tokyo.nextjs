@@ -8,6 +8,8 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Progress from "@/components/progress"
 
+export const revalidate = 600
+
 export const viewport = {
     width: 'device-width',
     initialScale: 1,

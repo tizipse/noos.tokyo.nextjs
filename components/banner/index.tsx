@@ -53,6 +53,11 @@ export default function (props: COMBanner.Props) {
                 mobile_banner &&
                 <div className={styles.mobile}>
 
+                    {
+                        props.icon_down &&
+                        <img src={props.icon_down} alt='down' className={styles.icon_down}/>
+                    }
+
                     <Swiper
                         autoplay={{
                             delay: 5000,

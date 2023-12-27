@@ -26,7 +26,7 @@ export default async function () {
         <main className={styles.main}>
             {
                 banners &&
-                <Banner sources={banners}/>
+                <Banner sources={banners} icon_down={setting.icon_down}/>
             }
             {
                 menus &&
