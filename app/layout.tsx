@@ -10,18 +10,12 @@ import Progress from "@/components/progress"
 
 export const revalidate = 600
 
-export const viewport = {
-    width: 'device-width',
-    initialScale: 1,
-    userScalable: 'no'
-}
-
 export const metadata: Metadata = {
     title: 'NOOS Omotesando',
     description: '',
 }
 
-export default async function Layout({children}: { children: React.ReactNode }) {
+export default async function RootLayout({children}: { children: React.ReactNode }) {
 
     const setting = await doSetting()
 

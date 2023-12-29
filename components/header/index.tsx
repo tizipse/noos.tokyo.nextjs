@@ -1,7 +1,7 @@
 'use client'
 
-import {useEffect, useState} from "react";
-import Link from "next/link"
+import {useEffect, useState} from "react"
+import Link from "next/link";
 
 import styles from "./index.module.scss"
 
@@ -51,7 +51,7 @@ export default function (props: COMHeader.Props) {
                         {
                             menus.map(item => (
                                 <li key={item.key}>
-                                    <a href={item.uri}>{item.name}</a>
+                                    <Link href={item.uri}>{item.name}</Link>
                                 </li>
                             ))
                         }
@@ -79,7 +79,7 @@ export default function (props: COMHeader.Props) {
                     {
                         menus.map(item => (
                             <li key={item.key}>
-                                <a href={item.uri}>{item.name}</a>
+                                <Link href={item.uri}>{item.name}</Link>
                             </li>
                         ))
                     }

@@ -19,7 +19,6 @@ export async function generateMetadata(props: APPMember.Props, parent: Resolving
     }
 }
 
-
 export default async function (props: APPMember.Props) {
 
     const member = await doMemberOfInformation(props.params.id)

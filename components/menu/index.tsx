@@ -1,10 +1,10 @@
 'use client'
 
-import React from "react";
-import {Collapse, ConfigProvider} from "antd";
+import React from "react"
+import {Collapse, ConfigProvider} from "antd"
+import {DownOutlined} from "@ant-design/icons"
 
 import styles from "./index.module.scss"
-import {DownOutlined} from "@ant-design/icons";
 
 export default function (props: COMMenu.Props) {
 

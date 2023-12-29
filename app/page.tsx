@@ -1,9 +1,9 @@
 import Link from "next/link"
-import {doBannerOfOpening} from "@/service/banner";
-import {doMenuOfOpening} from "@/service/menu";
-import {doMemberOfOpening} from "@/service/member";
-import {doTimeOfOpening} from "@/service/time";
-import {doSetting} from "@/service/setting";
+import {doBannerOfOpening} from "@/service/banner"
+import {doMenuOfOpening} from "@/service/menu"
+import {doMemberOfOpening} from "@/service/member"
+import {doTimeOfOpening} from "@/service/time"
+import {doSetting} from "@/service/setting"
 
 import styles from './page.module.scss'
 
