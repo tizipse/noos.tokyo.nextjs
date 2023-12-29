@@ -54,11 +54,11 @@ export default function (props: COMMenu.Props) {
                         />
                     </ConfigProvider>
                     <p>
-                        <span>※全てDesignerランク料金価格となっております※ランクと範囲により料金が変更になる場合があります。</span>
-                        <span>※詳しくはスタッフまでお尋ね下さい。税込み表記 Tax included</span>
                         <span>※全てDesignerランク料金価格となっております</span>
-                        <span>※ランクと範囲により料金が変更になる場合があります。</span>
-                        <span>※各種クレジットカードとPayPayがご利用いただけます。</span>
+                        <span>※ランクと範囲により料金が変更になる場合があります</span>
+                        <span>※詳しくはスタッフまでお尋ね下さい</span>
+                        <span>※税込み表記 Tax included</span>
+                        <span>※各種クレジットカードとPayPayがご利用いただけます</span>
                     </p>
                 </div>
                 <div className='clear'></div>

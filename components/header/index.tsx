@@ -51,7 +51,7 @@ export default function (props: COMHeader.Props) {
                         {
                             menus.map(item => (
                                 <li key={item.key}>
-                                    <Link href={item.uri}>{item.name}</Link>
+                                    <a href={item.uri}>{item.name}</a>
                                 </li>
                             ))
                         }
@@ -79,7 +79,7 @@ export default function (props: COMHeader.Props) {
                     {
                         menus.map(item => (
                             <li key={item.key}>
-                                <Link href={item.uri}>{item.name}</Link>
+                                <a href={item.uri}>{item.name}</a>
                             </li>
                         ))
                     }
