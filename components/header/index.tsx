@@ -4,8 +4,11 @@ import {useEffect, useState} from "react"
 import Link from "next/link";
 
 import styles from "./index.module.scss"
+import {useRouter} from "next/navigation";
 
 export default function (props: COMHeader.Props) {
+
+    const router = useRouter();
 
     const menus: COMHeader.Data[] = [
         {name: 'Menu', uri: '/#menu', key: 'menu'},
@@ -14,6 +17,13 @@ export default function (props: COMHeader.Props) {
     ]
 
     const [collapse, setCollapse] = useState(false)
+
+    const onMobile = (uri: string) => {
+
+        setCollapse(false)
+
+        router.push(uri)
+    }
 
     const onResize = () => {
         if (collapse) {
@@ -59,9 +69,9 @@ export default function (props: COMHeader.Props) {
                 </div>
 
                 <div className={styles.mobile}>
-                    <Link href='/' className={styles.logo}>
+                    <div className={styles.logo} onClick={() => onMobile('/')}>
                         <img src={props.logo || '/logo.png'} alt='logo'/>
-                    </Link>
+                    </div>
                     <div
                         onClick={() => setCollapse(!collapse)}
                         className={`${styles.menu} ${collapse ? styles.active : styles.close}`}
@@ -78,8 +88,8 @@ export default function (props: COMHeader.Props) {
                 <ul>
                     {
                         menus.map(item => (
-                            <li key={item.key}>
-                                <Link href={item.uri}>{item.name}</Link>
+                            <li key={item.key} onClick={() => onMobile(item.uri)}>
+                                {item.name}
                             </li>
                         ))
                     }
