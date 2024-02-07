@@ -1,5 +1,6 @@
 'use client'
 
+import React from "react"
 import Link from "next/link"
 import {Swiper, SwiperSlide} from "swiper/react"
 import {Autoplay} from 'swiper/modules'
@@ -54,8 +55,25 @@ export default function (props: COMBanner.Props) {
                 <div className={styles.mobile}>
 
                     {
-                        props.icon_down &&
-                        <img src={props.icon_down} alt='down' className={styles.icon_down}/>
+                        props.links &&
+                        <ul className={styles.links}>
+                            {
+                                props.links.map((item, index) => (
+                                    <React.Fragment key={item.id}>
+                                        {
+                                            index > 0 &&
+                                            <li className={styles.split}></li>
+                                        }
+                                        <li>
+                                            <a href={item.url} target='_blank'>
+                                                <p>{item.summary}</p>
+                                                <h3>{item.name}</h3>
+                                            </a>
+                                        </li>
+                                    </React.Fragment>
+                                ))
+                            }
+                        </ul>
                     }
 
                     <Swiper

@@ -50,6 +50,42 @@
       z-index: 9;
     }
 
+    .links {
+      width: 100%;
+      display: flex;
+      position: absolute;
+      bottom: 15%;
+      z-index: 9;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      li {
+        text-align: center;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+
+        &.split {
+          width: 20px;
+          background: linear-gradient(to bottom right, transparent 0%, transparent calc(50% - 1px), #222, 50%, transparent calc(50% - 1px), transparent 100%);
+        }
+
+        a {
+          color: var(--title-color);
+          display: block;
+          padding: 0 20px;
+
+          h3 {
+            font-size: 14px;
+          }
+
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
     .slide {
       width: 100%;
       height: var(--window-height, 100vh);

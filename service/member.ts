@@ -18,6 +18,7 @@ export const doMemberOfOpening = async () => {
 
     return data;
 };
+
 export const doMemberOfInformation = async (id: string) => {
 
     let data: API.MemberOfInformation | undefined = undefined;

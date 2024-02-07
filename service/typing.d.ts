@@ -9,6 +9,20 @@ declare namespace API {
         url?: string;
     }
 
+    type Recruit = {
+        id: number;
+        name: string;
+        summary: string;
+        url?: string;
+    }
+
+    type Link = {
+        id: number;
+        name: string;
+        summary: string;
+        url?: string;
+    }
+
     type Menu = {
         code: string;
         label: string;
@@ -29,6 +43,13 @@ declare namespace API {
         is_delegate?: number;
     }
 
+    type Original = {
+        id: string;
+        name: string;
+        thumb: string;
+        summary: string;
+    }
+
     type Time = {
         id: number;
         name: string;
@@ -47,10 +68,27 @@ declare namespace API {
         introduce: string;
     }
 
+    type OriginalOfInformation = {
+        id: string;
+        name: string;
+        nickname: string;
+        thumb: string;
+        ins: string;
+        summary: string;
+        introduce: string;
+    }
+
     type SEO = {
         title: string;
         keyword: string;
         description: string;
+    }
+
+    type  Page = {
+        id: number;
+        code: string;
+        name: string;
+        content: string;
     }
 
     type Setting = {
@@ -59,6 +97,7 @@ declare namespace API {
         address?: string;
         map?: string;
         icon_down?: string;
+        what_we_do?: string;
     }
 
     type Response<T> = {

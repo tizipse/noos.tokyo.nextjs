@@ -14,6 +14,9 @@ export default function (props: COMHeader.Props) {
         {name: 'Menu', uri: '/#menu', key: 'menu'},
         {name: 'Member', uri: '/#member', key: 'member'},
         {name: 'Information', uri: '/#information', key: 'information'},
+        {name: 'Recruit', uri: '/#recruit', key: 'recruit'},
+        {name: 'Original', uri: '/#original', key: 'original'},
+        {name: 'About us', uri: '/#about', key: 'about'},
     ]
 
     const [collapse, setCollapse] = useState(false)

@@ -1,11 +1,11 @@
 import Constants from "@/util/constants";
 import {Basic} from "@/service/api";
 
-export const doSEO = async (channel: 'member', id: string) => {
+export const doSEO = async (channel: 'member' | 'original', id: string) => {
 
     let data: API.SEO | undefined = undefined;
 
-    const res = await fetch(Basic(`/shop/seo?channel=${channel}&id=${id}`))
+    const res = await fetch(Basic(`/web/seo?channel=${channel}&id=${id}`))
 
     if (res.ok) {
 
