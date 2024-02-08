@@ -15,6 +15,24 @@ export default function (props: COMBanner.Props) {
     const pc_banner = props.sources.filter(item => item.client == 'pc')
     const mobile_banner = props.sources.filter(item => item.client == 'mobile')
 
+    const onCollapse = () => {
+
+        const body = document.body
+        const container = document.getElementById('mobile_container')
+        const button = document.getElementById('mobile_button')
+
+        if (container && button) {
+
+            body.classList.add('no-scroll')
+
+            container.classList.remove('close')
+            container.classList.add('active')
+
+            button.classList.remove('close')
+            button.classList.add('active')
+        }
+    }
+
     return (
         <div className={styles.banner}>
             {
@@ -64,11 +82,19 @@ export default function (props: COMBanner.Props) {
                                             index > 0 &&
                                             <li className={styles.split}></li>
                                         }
-                                        <li>
-                                            <a href={item.url} target='_blank'>
-                                                <p>{item.summary}</p>
-                                                <h3>{item.name}</h3>
-                                            </a>
+                                        <li onClick={item.is_system == 1 ? onCollapse : undefined}>
+                                            {
+                                                item.is_system == 1 ? (
+                                                        <span>
+                                                            <p>{item.summary}</p>
+                                                            <h3>{item.name}</h3>
+                                                        </span>
+                                                    ) :
+                                                    <a href={item.url} target='_blank'>
+                                                        <p>{item.summary}</p>
+                                                        <h3>{item.name}</h3>
+                                                    </a>
+                                            }
                                         </li>
                                     </React.Fragment>
                                 ))

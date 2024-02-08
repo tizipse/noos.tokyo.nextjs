@@ -21,6 +21,7 @@ declare namespace API {
         name: string;
         summary: string;
         url?: string;
+        is_system?: 1 | 2;
     }
 
     type Menu = {

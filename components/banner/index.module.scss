@@ -70,7 +70,7 @@
           background: linear-gradient(to bottom right, transparent 0%, transparent calc(50% - 1px), #222, 50%, transparent calc(50% - 1px), transparent 100%);
         }
 
-        a {
+        a, span {
           color: var(--title-color);
           display: block;
           padding: 0 20px;

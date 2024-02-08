@@ -70,70 +70,31 @@
       width: $header-mobile-height;
       height: $header-mobile-height;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      .menus {
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
+      &:global {
 
-        .item {
-          width: $header-menu-width;
-          height: 1px;
-          background-color: var(--nav-color);
-          position: absolute;
-          animation-duration: .5s;
-          animation-fill-mode: forwards;
-          animation-direction: alternate;
-          animation-timing-function: cubic-bezier(.215, .61, .355, 1);
+        &.close {
 
-          &.top {
-            top: -$header-menu-shifting;
-            transform: translateY(0);
+          .activated {
+            display: block;
           }
 
-          &.center {
-            animation-delay: .1s;
-          }
-
-          &.bottom {
-            top: $header-menu-shifting;
+          .closed {
+            display: none;
           }
         }
-      }
 
-      &.active {
+        &.active {
 
-        .menus {
-
-          .top {
-            animation-name: menu-top-in;
+          .activated {
+            display: none;
           }
 
-          .center {
-            animation-name: menu-center-in;
-          }
-
-          .bottom {
-            animation-name: menu-bottom-in;
-          }
-        }
-      }
-
-      &.close {
-
-        .menus {
-
-          .top {
-            animation-name: menu-top-out;
-          }
-
-          .center {
-            animation-name: menu-center-out;
-          }
-
-          .bottom {
-            animation-name: menu-bottom-out;
+          .closed {
+            display: block;
           }
         }
       }
@@ -151,6 +112,20 @@
   z-index: 998;
   background-color: var(--background-color);
 
+  &:global {
+
+    &.active {
+      display: block;
+      animation-name: content-in;
+    }
+
+    &.close {
+      display: none;
+      animation-name: content-out;
+      animation-duration: .1s;
+    }
+  }
+
   ul {
     width: 100%;
     position: absolute;
@@ -161,90 +136,6 @@
       text-align: center;
       padding: 15px 0;
     }
-  }
-
-  &.active {
-    display: block;
-    animation-name: content-in;
-  }
-
-  &.close {
-    display: none;
-    animation-name: content-out;
-    animation-duration: .1s;
-  }
-
-}
-
-@keyframes menu-top-in {
-  0% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY($header-menu-shifting) rotate(0);
-  }
-  100% {
-    transform: translateY($header-menu-shifting) rotate(-45deg);
-  }
-}
-
-@keyframes menu-center-in {
-  0% {
-    width: $header-menu-width;
-  }
-  50% {
-    width: 0;
-  }
-  100% {
-    width: 0;
-  }
-}
-
-@keyframes menu-bottom-in {
-  0% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-$header-menu-shifting) rotate(0);
-  }
-  100% {
-    transform: translateY(-$header-menu-shifting) rotate(45deg);
-  }
-}
-
-@keyframes menu-top-out {
-  0% {
-    transform: translateY($header-menu-shifting) rotate(-45deg);
-  }
-  50% {
-    transform: translateY($header-menu-shifting) rotate(0);
-  }
-  100% {
-    transform: translateY(0) rotate(0);
-  }
-}
-
-@keyframes menu-center-out {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: $header-menu-width;
-  }
-  100% {
-    width: $header-menu-width;
-  }
-}
-
-@keyframes menu-bottom-out {
-  0% {
-    transform: translateY(-$header-menu-shifting) rotate(45deg);
-  }
-  50% {
-    transform: translateY(-$header-menu-shifting) rotate(0);
-  }
-  100% {
-    transform: translateY(0) rotate(0);
   }
 }
 

@@ -1,10 +1,11 @@
 'use client'
 
-import {useEffect, useState} from "react"
-import Link from "next/link";
+import {useEffect} from "react"
+import {useRouter} from "next/navigation"
+import {CloseOutlined, MenuOutlined} from "@ant-design/icons"
+import Link from "next/link"
 
 import styles from "./index.module.scss"
-import {useRouter} from "next/navigation";
 
 export default function (props: COMHeader.Props) {
 
@@ -19,39 +20,88 @@ export default function (props: COMHeader.Props) {
         {name: 'About us', uri: '/#about', key: 'about'},
     ]
 
-    const [collapse, setCollapse] = useState(false)
+    const onActivated = (container: HTMLElement | null, btn: HTMLElement | null, body?: HTMLElement) => {
 
-    const onMobile = (uri: string) => {
+        if (!container) {
+            container = document.getElementById('mobile_container')
+        }
 
-        setCollapse(false)
+        if (!btn) {
+            btn = document.getElementById('mobile_button')
+        }
 
-        router.push(uri)
+        if (!body) {
+            body = document.body
+        }
+
+        body.classList.add('no-scroll')
+
+        if (container && btn) {
+
+            container.classList.remove('close')
+            container.classList.add('active')
+
+            btn.classList.remove('close')
+            btn.classList.add('active')
+        }
     }
 
-    const onResize = () => {
-        if (collapse) {
-            setCollapse(false)
+    const onClosed = (container?: HTMLElement | null, btn?: HTMLElement | null, body?: HTMLElement) => {
+
+        if (!container) {
+            container = document.getElementById('mobile_container')
         }
+
+        if (!btn) {
+            btn = document.getElementById('mobile_button')
+        }
+
+        if (!body) {
+            body = document.body
+        }
+
+        body.classList.remove('no-scroll')
+
+        if (container && btn) {
+
+            container.classList.remove('active')
+            container.classList.add('close')
+
+            btn.classList.remove('active')
+            btn.classList.add('close')
+        }
+    }
+
+    const onCollapse = () => {
+
+        const body = document.body
+        const container = document.getElementById('mobile_container')
+        const btn = document.getElementById('mobile_button')
+
+        if (container && btn) {
+
+            if (body.classList.contains('no-scroll')) {
+                onClosed(container, btn, body)
+            } else {
+                onActivated(container, btn, body)
+            }
+        }
+    }
+
+    const onMobile = (uri: string) => {
+        onClosed()
+        router.push(uri)
     }
 
     useEffect(() => {
 
-        const body = document.body
-
-        if (collapse) {
-            body.classList.add('no-scroll')
-        } else {
-            body.classList?.remove('no-scroll')
-        }
-
-        window.addEventListener('resize', onResize)
+        window.addEventListener('resize', () => onClosed())
 
         return () => {
-            window.removeEventListener('resize', onResize)
+            window.removeEventListener('resize', () => onClosed())
         }
 
-    }, [collapse]);
-
+    }, []);
 
     return (
         <>
@@ -72,22 +122,13 @@ export default function (props: COMHeader.Props) {
                 </div>
 
                 <div className={styles.mobile}>
-                    <div className={styles.logo} onClick={() => onMobile('/')}>
-                        <img src={props.logo || '/logo.png'} alt='logo'/>
-                    </div>
-                    <div
-                        onClick={() => setCollapse(!collapse)}
-                        className={`${styles.menu} ${collapse ? styles.active : styles.close}`}
-                    >
-                        <div className={styles.menus}>
-                            <div className={`${styles.item} ${styles.top}`}/>
-                            <div className={`${styles.item} ${styles.center}`}/>
-                            <div className={`${styles.item} ${styles.bottom}`}/>
-                        </div>
+                    <div id='mobile_button' onClick={onCollapse} className={`${styles.menu} close`}>
+                        <MenuOutlined className='activated'/>
+                        <CloseOutlined className='closed'/>
                     </div>
                 </div>
             </div>
-            <div className={`${styles.mobile_container} ${collapse ? styles.active : styles.close}`}>
+            <div id='mobile_container' className={`${styles.mobile_container}`}>
                 <ul>
                     {
                         menus.map(item => (
