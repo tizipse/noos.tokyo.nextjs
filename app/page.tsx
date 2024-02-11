@@ -43,7 +43,7 @@ export default async function () {
             {
                 setting.what_we_do &&
                 <div className={styles.what_we_do}>
-                    <h2>What we do</h2>
+                    <h2>WHAT WE DO</h2>
                     <div className={styles.container}>
                         <img src={setting.what_we_do} alt="what we do"/>
                     </div>
@@ -51,12 +51,12 @@ export default async function () {
             }
             {
                 menus &&
-                <Menu sources={menus}/>
+                <Menu sources={menus} picture={setting.menu}/>
             }
             {
                 members &&
                 <div id='member' className={styles.member}>
-                    <h2>Member</h2>
+                    <h2>MEMBER</h2>
                     <div className={styles.container}>
                         {
                             members.map(item => (
@@ -67,8 +67,10 @@ export default async function () {
                                     <div className={styles.info}>
                                         <h3>{item.name}</h3>
                                         {
-                                            item.is_delegate == 1 &&
-                                            <h4>NOOS代表</h4>
+                                            item.level == 'delegate' ?
+                                                <h4>NOOS代表</h4> :
+                                                item.level == 'majordomo' ?
+                                                    <h4>NOOS統括代表</h4> : ''
                                         }
                                         <h4>{item.title}</h4>
                                     </div>
@@ -81,7 +83,7 @@ export default async function () {
 
             <div id='information' className={styles.information}>
 
-                <h2>Information</h2>
+                <h2>INFORMATION</h2>
 
                 <div className={styles.container}>
 
@@ -124,7 +126,7 @@ export default async function () {
                 recruits &&
                 <div id='recruit' className={styles.recruit}>
 
-                    <h2>Recruit</h2>
+                    <h2>RECRUIT</h2>
 
                     <div className={styles.container}>
                         {
@@ -143,7 +145,7 @@ export default async function () {
             {
                 originals &&
                 <div id='original' className={styles.original}>
-                    <h2>Original</h2>
+                    <h2>ORIGINAL</h2>
                     <div className={styles.container}>
                         {
                             originals.map(item => (

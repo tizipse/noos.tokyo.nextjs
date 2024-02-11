@@ -40,7 +40,12 @@ export default async function (props: APPMember.Props) {
                     <div className={styles.inf}>
                         <h3>{member.name}</h3>
                         <h4>{member.nickname}</h4>
-                        {member.is_delegate == 1 && <h4>NOOS 代表</h4>}
+                        {
+                            member.level == 'delegate' ?
+                                <h4>NOOS代表</h4> :
+                                member.level == 'majordomo' ?
+                                    <h4>NOOS統括代表</h4> : ''
+                        }
                         <h4>{member.title}</h4>
                     </div>
 

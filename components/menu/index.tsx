@@ -11,11 +11,14 @@ export default function (props: COMMenu.Props) {
     return (
         <div id='menu' className={styles.menu}>
 
-            <h2>Menu</h2>
+            <h2>MENU</h2>
 
             <div className={styles.container}>
                 <div className={styles.environment}>
-                    <img src='/images/menu.png' alt='menu'/>
+                    {
+                        props.picture &&
+                        <img src={props.picture} alt='menu'/>
+                    }
                 </div>
                 <div className={styles.collapse}>
                     <ConfigProvider

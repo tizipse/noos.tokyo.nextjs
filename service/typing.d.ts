@@ -41,7 +41,7 @@ declare namespace API {
         name: string;
         thumb: string;
         title: string;
-        is_delegate?: number;
+        level?: 'delegate' | 'majordomo';
     }
 
     type Original = {
@@ -65,7 +65,7 @@ declare namespace API {
         thumb: string;
         ins: string;
         title: string;
-        is_delegate?: number;
+        level?: 'delegate' | 'majordomo';
         introduce: string;
     }
 
@@ -97,8 +97,8 @@ declare namespace API {
         logo?: string;
         address?: string;
         map?: string;
-        icon_down?: string;
         what_we_do?: string;
+        menu?: string;
     }
 
     type Response<T> = {
